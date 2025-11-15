@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>CleanNova Home Services | Limpieza y servicios del hogar en Barcelona y Penedès</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Servicios de limpieza y mantenimiento del hogar en Barcelona y Vilafranca del Penedès. Limpieza por horas, limpiezas a fondo, post-obra y pequeños mantenimientos." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1f6feb;
+      --primary-dark: #174fb0;
+      --accent: #20c997;
+      --bg: #f5f7fb;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+      --radius-lg: 18px;
+      --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245, 247, 251, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 20% 20%, #ffffff 0, #dbeafe 40%, #1f6feb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .logo-icon span {
+      font-size: 1.1rem;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: #ffffff;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #0369a1;
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #eff6ff 0, #e0f2fe 40%, #e5e7eb 100%);
+      border-radius: 26px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.6);
+      color: #e5e7eb;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 18px;
+      padding: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-stat strong {
+      font-size: 1.1rem;
+      display: block;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 580px;
+      margin: 0.3rem auto 0;
+    }
+
+    /* Servicios */
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Pricing */
+
+    .pricing-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: stretch;
+    }
+
+    .pricing-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.7rem;
+    }
+
+    .price-card {
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 22px;
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .price-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .price-main {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .price-main span:first-child {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .price-main span:last-child {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+
+    .price-sub {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 0.9rem;
+    }
+
+    .price-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.1rem;
+      font-size: 0.85rem;
+    }
+
+    .price-list li {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .price-list li::before {
+      content: "✔";
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+      color: #22c55e;
+    }
+
+    /* Zonas */
+
+    .zones {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .zones ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.4rem;
+    }
+
+    .zones li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    /* Contacto */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    form {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .form-group {
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      padding: 0.5rem 0.6rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.12s ease, box-shadow 0.12s ease;
+      background: #f9fafb;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2);
+      background: #ffffff;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact-info p {
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-highlight {
+      background: rgba(34, 197, 94, 0.08);
+      border-radius: 14px;
+      padding: 0.7rem 0.9rem;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: #166534;
+    }
+
+    footer {
+      padding: 1.8rem 0;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .pricing-wrapper,
+      .zones,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none; /* versión simple sin menú móvil avanzado */
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-icon">
+            <span>CN</span>
+          </div>
+          <span>CleanNova<br />Home Services</span>
+        </div>
+        <div class="nav-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#tarifas">Tarifas</a>
+          <a href="#zonas">Zonas</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div class="nav-cta">
+          <a href="#contacto" class="btn btn-outline">Pide presupuesto</a>
+          <a href="tel:+34600000000" class="btn btn-primary">Llamar ahora</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">
+            ✨ Limpieza profesional en Barcelona y Penedès
+          </div>
+          <h1 class="hero-title">
+            Tu casa impecable, <span>sin complicaciones</span>.
+          </h1>
+          <p class="hero-subtitle">
+            CleanNova Home Services ofrece servicios de limpieza y mantenimiento del hogar
+            en Barcelona y Vilafranca del Penedès: limpieza por horas, limpiezas a fondo,
+            post-obra y pequeños arreglos, con personal profesional y de confianza.
+          </p>
+          <div class="hero-cta">
+            <a href="#contacto" class="btn btn-primary">
+              Solicitar visita sin compromiso
+            </a>
+            <a href="#servicios" class="btn btn-outline">
+              Ver todos los servicios
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span><strong>+X</strong> hogares atendidos en BCN y Penedès</span>
+            <span>Horarios flexibles · Factura y Seguro incluidos</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-tag">Servicio para tu hogar</div>
+          <h3>Ejemplo de plan mensual</h3>
+          <p style="font-size:0.9rem; color:#334155; margin-top:0.4rem;">
+            Piso de 70–90 m² en Barcelona o Vilafranca del Penedès:
+            limpieza de mantenimiento + extras según tus necesidades.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>3 h/semana</strong>
+              Limpieza general, baños, cocina y repaso de polvo.
+            </div>
+            <div class="hero-stat">
+              <strong>Desde 12–15 €/h</strong>
+              Precio orientativo según zona y frecuencia.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Servicios</div>
+          <h2 class="section-title">Todo lo que tu casa necesita</h2>
+          <p class="section-subtitle">
+            Nos adaptamos a tu piso o casa: desde limpiezas semanales rápidas hasta
+            limpiezas a fondo después de obra o cambio de inquilinos.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-icon">🏠</div>
+            <h3 class="card-title">Limpieza de mantenimiento</h3>
+            <p class="card-text">
+              Limpieza por horas para mantener tu hogar siempre ordenado:
+              suelos, baños, cocina, polvo y superficies. Ideal para servicios
+              semanales o quincenales.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">✨</div>
+            <h3 class="card-title">Limpieza a fondo</h3>
+            <p class="card-text">
+              Limpiezas puntuales más intensivas: interior de armarios,
+              cristales, cocina y baños en profundidad, cambios de temporada
+              y fin de obra.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧺</div>
+            <h3 class="card-title">Plancha y orden</h3>
+            <p class="card-text">
+              Plancha de ropa, cambio de sábanas, organización sencilla de
+              armarios y ayuda con pequeñas tareas domésticas del día a día.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🛠️</div>
+            <h3 class="card-title">Pequeños mantenimientos</h3>
+            <p class="card-text">
+              Pequeños arreglos domésticos: siliconas, lámparas, montaje
+              básico de muebles y revisión general junto con la limpieza.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🏢</div>
+            <h3 class="card-title">Oficinas y despachos</h3>
+            <p class="card-text">
+              Limpieza de oficinas pequeñas, despachos y coworkings
+              en Barcelona y entorno, en horarios adaptados a tu actividad.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🐾</div>
+            <h3 class="card-title">Hogares con mascotas</h3>
+            <p class="card-text">
+              Limpieza pensada para casas con gatos y perros:
+              eliminación de pelo, aspirado en profundidad y cuidado
+              de sofás y textiles.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFAS -->
+    <section id="tarifas">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Tarifas orientativas</div>
+          <h2 class="section-title">Precios claros y sin sorpresas</h2>
+          <p class="section-subtitle">
+            Los precios finales pueden variar según la zona, el tamaño del hogar
+            y la frecuencia del servicio, pero estas tarifas te sirven como
+            referencia para Barcelona y Vilafranca del Penedès.
+          </p>
+        </div>
+
+        <div class="pricing-wrapper">
+          <div>
+            <h3 style="margin-bottom:0.6rem;">Limpieza por horas</h3>
+            <p style="font-size:0.9rem; color:var(--muted);">
+              Para limpiezas recurrentes de mantenimiento:
+            </p>
+            <ul class="price-list" style="margin-top:0.7rem;">
+              <li>Barcelona ciudad: aprox. 12–18 €/hora según frecuencia.</li>
+              <li>Vilafranca del Penedès y entorno: aprox. 11–16 €/hora.</li>
+              <li>Servicio mínimo habitual: 3 horas por visita.</li>
+            </ul>
+            <p class="pricing-note">
+              Para limpiezas a fondo, post-obra o pisos muy grandes,
+              se puede trabajar con presupuesto cerrado por proyecto.
+            </p>
+          </div>
+
+          <aside class="price-card">
+            <div class="price-chip">
+              ⭐ Plan más habitual
+            </div>
+            <div class="price-main">
+              <span>3 h / semana</span>
+              <span>piso 70–90 m²</span>
+            </div>
+            <div class="price-sub">
+              Desde ~150–190 € / mes (orientativo, según zona y extras).
+            </div>
+            <ul class="price-list">
+              <li>Limpieza general de estancias, baños y cocina.</li>
+              <li>Repaso de polvo, suelos y puntos de uso diario.</li>
+              <li>Cambio de sábanas según necesidad.</li>
+              <li>Posibilidad de añadir plancha u otras tareas.</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Quiero un presupuesto exacto
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONAS -->
+    <section id="zonas">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Zonas de servicio</div>
+          <h2 class="section-title">Barcelona & Penedès</h2>
+          <p class="section-subtitle">
+            Trabajamos principalmente en Barcelona ciudad y en la zona del Penedès.
+            Si tienes dudas sobre tu código postal, pregúntanos sin compromiso.
+          </p>
+        </div>
+
+        <div class="zones">
+          <div class="card">
+            <h3 class="card-title">Área Barcelona</h3>
+            <p class="card-text">
+              Servicio en los principales barrios de la ciudad:
+            </p>
+            <ul>
+              <li>Eixample, Gràcia, Sarrià-Sant Gervasi</li>
+              <li>Sants, Les Corts, Sant Martí, Poblenou</li>
+              <li>Zona litoral y algunos municipios limítrofes</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Vilafranca del Penedès y entorno</h3>
+            <p class="card-text">
+              Cobertura en:
+            </p>
+            <ul>
+              <li>Vilafranca del Penedès (08720)</li>
+              <li>Pueblos cercanos del Alt Penedès</li>
+              <li>Posibilidad de servicio en Garraf / Baix Penedès</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Contacto</div>
+          <h2 class="section-title">Pide tu presupuesto</h2>
+          <p class="section-subtitle">
+            Cuéntanos cómo es tu piso o casa, qué tipo de servicio necesitas
+            y en qué horario te va mejor. Te responderemos con una propuesta
+            personalizada.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <form>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" type="text" placeholder="Tu nombre" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="tucorreo@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" type="tel" placeholder="+34 ..." />
+            </div>
+            <div class="form-group">
+              <label for="zona">Zona</label>
+              <input id="zona" type="text" placeholder="Barcelona, Vilafranca, etc." />
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Cuéntanos qué necesitas</label>
+              <textarea id="mensaje" placeholder="Tipo de servicio, metros aproximados, horarios..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Enviar solicitud (ejemplo)
+            </button>
+            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
+              *Este formulario es solo un ejemplo. Necesitarás conectarlo a tu email o CRM.
+            </p>
+          </form>
+
+          <div class="contact-info">
+            <p><strong>Teléfono:</strong> +34 600 00 00 00</p>
+            <p><strong>Email:</strong> hola@cleannova.es (ejemplo)</p>
+            <p><strong>Horario habitual:</strong> Lunes a viernes de 9:00 a 19:00</p>
+
+            <div class="contact-highlight">
+              ¿Prefieres WhatsApp? Añade aquí tu botón o enlace directo a tu número
+              de empresa cuando lo tengas configurado.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> CleanNova Home Services. Todos los derechos reservados.</span>
+      <span>Barcelona · Vilafranca del Penedès</span>
+    </div>
+  </footer>
+
+  <script>
+    // Año automático en el footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
